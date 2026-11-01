@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ARA Campanha 3</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600&display=swap">
+<style>
+/* Layout: a phone-width Instagram profile — header, grid, and a post viewer that opens over it. Single light theme, like the app. */
+:root{
+  --bg:#ffffff; --fg:#0f1419; --muted:#6b7280; --line:#e5e7eb; --chip:#f3f4f6;
+  --gold:#8A7228; --navy:#141C2A; --link:#1d4ed8;
+  --ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --brand:"Titillium Web",var(--ui);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--ui);font-size:14px;line-height:1.4}
+.wrap{max-width:470px;margin:0 auto;padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px));padding-block:0 40px}
+.note{font-family:var(--brand);background:var(--navy);color:#F6F3EC;padding:14px max(16px,env(safe-area-inset-left,0px));font-size:13px;letter-spacing:.02em}
+.note b{color:#C9A858;font-weight:600}
+.top{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--line);font-weight:600;font-size:16px}
+.prof{display:flex;gap:24px;align-items:center;padding:18px 16px 8px}
+.av{width:84px;height:84px;border-radius:50%;flex:none;overflow:hidden;box-shadow:0 0 0 2px var(--bg),0 0 0 4px #C9A858}
+.av img{width:100%;height:100%;display:block}
+.stats{display:flex;gap:22px;text-align:center;flex:1;justify-content:space-around}
+.stats b{display:block;font-size:16px}
+.stats span{font-size:13px;color:var(--fg)}
+.bio{padding:6px 16px 12px;font-size:14px}
+.bio .n{font-weight:600}
+.bio .c{color:var(--muted)}
+.btns{display:flex;gap:6px;padding:0 16px 14px}
+.btns div{flex:1;text-align:center;background:var(--chip);border-radius:8px;padding:7px 0;font-weight:600;font-size:13px}
+.tabs{display:flex;border-top:1px solid var(--line)}
+.tabs button{flex:1;padding:11px 0;background:none;border:0;border-top:1px solid transparent;margin-top:-1px;font:600 12px var(--ui);letter-spacing:.08em;color:var(--muted);cursor:pointer}
+.tabs button[aria-pressed="true"]{color:var(--fg);border-top-color:var(--fg)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px}
+.grid button{position:relative;padding:0;border:0;background:var(--chip);aspect-ratio:3/4;overflow:hidden;cursor:pointer}
+.grid img{width:100%;height:100%;object-fit:cover;display:block}
+.grid .multi{position:absolute;top:8px;right:8px;width:18px;height:18px}
+.feed{display:flex;flex-direction:column}
+.post{border-bottom:1px solid var(--line);padding-bottom:12px}
+.ph{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.ph .mini{width:32px;height:32px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1.5px #C9A858}
+.ph .mini img{width:100%;height:100%;display:block}
+.ph .u{font-weight:600;font-size:14px}
+.ph .l{font-size:12px;color:var(--muted)}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;aspect-ratio:4/5;background:#000}
+.slides::-webkit-scrollbar{display:none}
+.slides img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:start;display:block}
+.slidewrap{position:relative}
+.reelv{display:block;width:100%;aspect-ratio:9/16;max-height:85vh;object-fit:cover;background:#000}
+.count{position:absolute;top:12px;right:12px;background:rgba(0,0,0,.6);color:#fff;font-size:12px;padding:3px 9px;border-radius:12px}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;border:0;background:rgba(255,255,255,.85);cursor:pointer;display:grid;place-items:center}
+.arrow.l{left:10px}.arrow.r{right:10px}
+.arrow[hidden]{display:none!important}
+.acts{display:flex;align-items:center;gap:14px;padding:10px 12px 4px}
+.acts svg{width:24px;height:24px}
+.dots{display:flex;gap:4px;justify-content:center;flex:1;margin-right:62px}
+.dots i{width:6px;height:6px;border-radius:50%;background:#c7c9cc}
+.dots i.on{background:var(--link)}
+.cap{padding:4px 12px 0;font-size:14px;white-space:pre-line}
+.cap .u{font-weight:600;margin-right:6px}
+.tag{color:#00376b}
+.meta{padding:6px 12px 0;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.lbl{font-family:var(--brand);display:inline-block;margin:10px 12px 0;background:var(--chip);color:var(--gold);font-weight:600;font-size:12px;padding:3px 10px;border-radius:12px;letter-spacing:.04em}
+button:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.slides{scroll-behavior:auto}}
+</style>
+
+<div class="note"><b>Prévia para aprovação</b> · ARA Faria Lima — campanha 3 "O tempo é seu", agora com <b>fotos reais</b> do empreendimento. Toque na grade para ver cada post. O Reels toca com som; no carrossel, deslize ou use as setas.</div>
+<div class="wrap">
+  <div class="top"><span>arafarialima</span><span aria-hidden="true">≡</span></div>
+  <div class="prof">
+    <div class="av"><img src="img/avatar.jpg" alt="Perfil Ara Faria Lima"></div>
+    <div class="stats"><div><b>8</b><span>posts</span></div><div><b>—</b><span>seguidores</span></div><div><b>—</b><span>seguindo</span></div></div>
+  </div>
+  <div class="bio"><div class="n">Ara Faria Lima</div><div class="c">Empreendimento residencial</div>`Ara. O tempo é seu.<br>Studios 25 m² e 1 dorm. 29 m² · Pronto para morar · Pinheiros, SP<br><a href="../plano.html" style="color:#00376b;font-weight:600;text-decoration:none">Plano de anúncios e legendas →</a> · <a href="../downloads/" style="color:#00376b;font-weight:600;text-decoration:none">Downloads →</a></div>
+  <div class="btns"><div>Seguir</div><div>Mensagem</div><div>Contato</div></div>
+  <div class="tabs" role="group" aria-label="Visualização">
+    <button id="tGrid" aria-pressed="true">GRADE</button>
+    <button id="tFeed" aria-pressed="false">FEED</button>
+  </div>
+  <div id="grid" class="grid"></div>
+  <div id="feed" class="feed" hidden></div>
+</div>
+
+<script>
+const POSTS=[{"id": "r4", "label": "Reels · Campanha 3 · Endereço que não para", "reel": true, "video": "img/ARA_C3_R4_Endereco_que_nao_para.mp4", "imgs": ["ARA_C3_R4_Endereco_que_nao_para"], "cap": "Onde São Paulo trabalha, todo mundo quer morar. 📈\n\nStudios de 25 e 29 m², prontos, em uma das regiões mais valorizadas da cidade.\nPara morar ou para investir: sem esperar obra, com a Faria Lima a poucos minutos.\n\n📅 AGENDE UMA VISITA e sinta o bem-estar de morar ou investir numa das regiões mais valorizadas da cidade.\n👉 Chame no direct ou toque no link da bio.", "tags": "#AraFariaLima #InvestimentoImobiliário #Studio #FariaLima #W3WImóveis"}, {"id": "r3", "label": "Reels · Campanha 3 · Fim de tarde", "reel": true, "video": "img/ARA_C3_R3_Fim_de_tarde.mp4", "imgs": ["ARA_C3_R3_Fim_de_tarde"], "cap": "Quanto vale o seu fim de tarde? 🌇\n\nO tempo passa. A pergunta é onde você vai estar.\nNo rooftop, no espaço gourmet ou no lounge, com quem você gosta, a poucos andares de casa.\n\n`Ara Faria Lima. O tempo é seu.\n\n📅 AGENDE UMA VISITA e sinta o bem-estar de morar ou investir numa das regiões mais valorizadas da cidade.\n👉 Chame no direct ou toque no link da bio.", "tags": "#AraFariaLima #OTempoÉSeu #Rooftop #Pinheiros"}, {"id": "r2", "label": "Reels · Campanha 3 · Vá de bike", "reel": true, "video": "img/ARA_C3_R2_Va_de_bike.mp4", "imgs": ["ARA_C3_R2_Va_de_bike"], "cap": "Trânsito? Não é com você. 🚲\n\nMorar no centro de tudo é trocar o trânsito pela ciclovia.\nBicicletário, coworking, fitness e lavanderia no próprio prédio.\n\n📅 AGENDE UMA VISITA e sinta o bem-estar de morar ou investir numa das regiões mais valorizadas da cidade.\n👉 Chame no direct ou toque no link da bio.", "tags": "#AraFariaLima #VáDeBike #FariaLima #Coworking #W3WImóveis"}, {"id": "r1", "label": "Reels · Campanha 3 · Tudo a minutos", "reel": true, "video": "img/ARA_C3_R1_Tudo_a_minutos.mp4", "imgs": ["ARA_C3_R1_Tudo_a_minutos"], "cap": "Daqui, tudo fica a minutos. ⏱\n\nMetrô, trabalho, cultura: a cidade inteira por perto.\nE o tempo, finalmente, no seu controle.\nStudios de 25 e 29 m², prontos para morar.\n\n📅 AGENDE UMA VISITA e sinta o bem-estar de morar ou investir numa das regiões mais valorizadas da cidade.\n👉 Chame no direct ou toque no link da bio.", "tags": "#AraFariaLima #OTempoÉSeu #FariaLima #Pinheiros #W3WImóveis"}, {"id": "man", "label": "Reels · Campanha 3 · Filme manifesto", "reel": true, "imgs": ["ARA_C3_Reel_Manifesto"], "cap": "Morar no centro de tudo muda o jeito de viver o seu dia.\n\nO metrô a poucos minutos. O trabalho logo ali. A cidade inteira ao seu alcance.\nE o tempo, finalmente, no seu controle: pra treinar sem pressa, ver o sol se pôr do rooftop, receber quem você gosta ou simplesmente não fazer nada.\n\nEm tupi-guarani, `Ara significa tempo. E ele é seu.\n\nAra Faria Lima · Studios de 25 m² e 1 dormitório de 29 m² · Pronto para morar.\n\n📅 AGENDE UMA VISITA e sinta o bem-estar de morar ou investir numa das regiões mais valorizadas da cidade.\n👉 Chame no direct ou toque no link da bio.", "tags": "#AraFariaLima #OTempoÉSeu #FariaLima #Pinheiros #ProntoParaMorar #W3WImóveis", "video": "img/ARA_C3_Reel_Manifesto.mp4"}, {"id": "cara", "label": "Carrossel · Campanha 3 · Morar", "imgs": ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8"], "cap": "Como seria o seu dia morando no centro de tudo? ⏱ Arraste →\n\n07:00 · treinar sem pressa, com a cidade pela janela\n10:00 · trabalhar sem atravessar a cidade\n13:00 · resolver a rotina sem sair do prédio\n18:20 · um mergulho no rooftop\n20:30 · receber quem você gosta\n22:00 · descansar no que é seu\n\nNo `Ara Faria Lima, o tempo volta para o seu controle.\nStudios de 25 m² e 1 dormitório de 29 m², prontos para morar.\n\n📅 AGENDE UMA VISITA e sinta o bem-estar de morar ou investir numa das regiões mais valorizadas da cidade.\n👉 Chame no direct ou toque no link da bio.", "tags": "#AraFariaLima #OTempoÉSeu #MorarBem #Pinheiros #FariaLima #W3WImóveis"}, {"id": "cari", "label": "Carrossel · Campanha 3 · Investir", "imgs": ["I1", "I2", "I3", "I4", "I5", "I6"], "cap": "25 m² pra morar. Ou pra investir. 📈 Arraste →\n\n✔ Pronto: sem esperar obra, sem esperar retorno\n✔ Em uma das regiões mais valorizadas de São Paulo\n✔ A poucos minutos do metrô e do maior polo de trabalho da cidade, onde muita gente procura onde morar\n✔ Rooftop com piscina, espaço gourmet, coworking, fitness e lavanderia no próprio edifício\n\nStudios de 25 m² e 1 dormitório de 29 m².\n\n📅 AGENDE UMA VISITA e sinta o bem-estar de morar ou investir numa das regiões mais valorizadas da cidade.\n👉 Chame no direct ou toque no link da bio.", "tags": "#AraFariaLima #InvestimentoImobiliário #Studio #FariaLima #Pinheiros #W3WImóveis"}, {"id": "carp", "label": "Carrossel · Campanha 3 · Primeiro apartamento", "imgs": ["P1", "P2", "P3", "P4", "P5", "P6"], "cap": "O primeiro apartamento dele. Ou dela. Sem preocupação. 🔑 Arraste →\n\nHall com lockers para as entregas, lavanderia, espaço fitness e pet place no próprio prédio.\nMetrô a poucos minutos e a cidade inteira por perto.\nTudo pronto para começar, e um patrimônio que fica na família.\n\nStudios de 25 m² e 1 dormitório de 29 m². Pronto para morar.\n\n📅 AGENDE UMA VISITA e sinta o bem-estar de morar ou investir numa das regiões mais valorizadas da cidade.\n👉 Chame no direct ou toque no link da bio.", "tags": "#AraFariaLima #PrimeiroApartamento #Studio #Pinheiros #ProntoParaMorar #W3WImóveis"}];
+const ICON_REEL='<svg class="multi" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M3 8h18M8 3l3 5M14 3l3 5"/><path d="M10 11.5v5l4.5-2.5z" fill="#fff"/></svg>';
+const ICON_MULTI='<svg class="multi" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 3h11a3 3 0 0 1 3 3v11h-2V6a1 1 0 0 0-1-1H7z"/><rect x="3" y="7" width="14" height="14" rx="2"/></svg>';
+const I={heart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>',
+ com:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3.3-6.5L20 4l-1 4a8 8 0 0 1 1 4z"/></svg>',
+ send:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4z"/></svg>',
+ save:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>'};
+const grid=document.getElementById('grid'),feed=document.getElementById('feed');
+POSTS.forEach(p=>{
+  const b=document.createElement('button');b.setAttribute('aria-label','Abrir '+p.label);
+  b.innerHTML=`<img src="img/${p.imgs[0]}.jpg" alt="${p.label}">${p.imgs.length>1?ICON_MULTI:''}${p.reel?ICON_REEL:''}`;
+  b.onclick=()=>{show('feed');document.getElementById('p-'+p.id).scrollIntoView({behavior:'smooth',block:'start'})};
+  grid.appendChild(b);
+  const art=document.createElement('article');art.className='post';art.id='p-'+p.id;
+  art.innerHTML=`<span class="lbl">${p.label}</span>
+   <div class="ph"><div class="mini"><img src="img/avatar.jpg" alt=""></div><div><div class="u">arafarialima</div><div class="l">Pinheiros, São Paulo</div></div></div>
+   <div class="slidewrap">${p.reel?`<video class="reelv" src="${p.video||'img/reel.mp4'}" poster="img/${p.imgs[0]}.jpg" controls playsinline preload="metadata"></video>`:`<div class="slides">${p.imgs.map((n,i)=>`<img src="img/${n}.jpg" alt="${p.label} — lâmina ${i+1}" loading="lazy">`).join('')}</div>`}
+   ${p.imgs.length>1?`<span class="count">1/${p.imgs.length}</span><button class="arrow l" aria-label="Anterior" hidden>‹</button><button class="arrow r" aria-label="Próxima">›</button>`:''}</div>
+   <div class="acts">${I.heart}${I.com}${I.send}${p.imgs.length>1?`<div class="dots">${p.imgs.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('')}</div>`:'<div style="flex:1"></div>'}${I.save}</div>
+   <div class="cap"><span class="u">arafarialima</span>${p.cap}\n<span class="tag">${p.tags}</span></div>
+   <div class="meta">Legenda sugerida</div>`;
+  feed.appendChild(art);
+  if(p.imgs.length>1){const s=art.querySelector('.slides'),c=art.querySelector('.count'),dots=[...art.querySelectorAll('.dots i')],l=art.querySelector('.arrow.l'),r=art.querySelector('.arrow.r');
+    const upd=()=>{const i=Math.round(s.scrollLeft/s.clientWidth);c.textContent=`${i+1}/${p.imgs.length}`;dots.forEach((d,k)=>d.classList.toggle('on',k===i));l.hidden=i===0;r.hidden=i===p.imgs.length-1};
+    s.addEventListener('scroll',()=>requestAnimationFrame(upd));
+    l.onclick=()=>s.scrollBy({left:-s.clientWidth,behavior:'smooth'});r.onclick=()=>s.scrollBy({left:s.clientWidth,behavior:'smooth'});}
+});
+const tG=document.getElementById('tGrid'),tF=document.getElementById('tFeed');
+function show(v){grid.hidden=v!=='grid';feed.hidden=v!=='feed';tG.setAttribute('aria-pressed',v==='grid');tF.setAttribute('aria-pressed',v==='feed')}
+tG.onclick=()=>show('grid');tF.onclick=()=>show('feed');
+</script>
+
+<script>
+(function(){function kill(){document.querySelectorAll('body *').forEach(function(e){if(e.closest('.wrap')||e.classList.contains('note'))return;var t=(e.textContent||'');if(/netlify/i.test(t)||/netlify/i.test(e.id+' '+e.className)){var cs=getComputedStyle(e);if(cs.position==='fixed'||cs.position==='absolute'||e.tagName==='IFRAME'||e.shadowRoot){e.remove()}}});document.querySelectorAll('iframe').forEach(function(f){if(!f.closest('.wrap'))f.remove()})}
+new MutationObserver(kill).observe(document.documentElement,{childList:true,subtree:true});addEventListener('load',kill);setInterval(kill,1000)})();
+</script>
+<style>[id*="netlify" i],[class*="netlify" i],netlify-badge,netlify-drawer{display:none!important}</style>
+</html>
