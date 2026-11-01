@@ -95,13 +95,13 @@ const I={heart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strok
 const grid=document.getElementById('grid'),feed=document.getElementById('feed');
 POSTS.forEach(p=>{
   const b=document.createElement('button');b.setAttribute('aria-label','Abrir '+p.label);
-  b.innerHTML=`<img src="img/${p.imgs[0]}.jpg?v=2" alt="${p.label}">${p.imgs.length>1?ICON_MULTI:''}${p.reel?ICON_REEL:''}`;
+  b.innerHTML=`<img src="img/${p.imgs[0]}.jpg?v=3" alt="${p.label}">${p.imgs.length>1?ICON_MULTI:''}${p.reel?ICON_REEL:''}`;
   b.onclick=()=>{show('feed');document.getElementById('p-'+p.id).scrollIntoView({behavior:'smooth',block:'start'})};
   grid.appendChild(b);
   const art=document.createElement('article');art.className='post';art.id='p-'+p.id;
   art.innerHTML=`<span class="lbl">${p.label}</span>
    <div class="ph"><div class="mini"><img src="img/avatar.jpg" alt=""></div><div><div class="u">arafarialima</div><div class="l">Pinheiros, São Paulo</div></div></div>
-   <div class="slidewrap">${p.reel?`<video class="reelv" src="${(p.video||'img/reel.mp4')+'?v=2'}" poster="img/${p.imgs[0]}.jpg?v=2" controls playsinline preload="metadata"></video>`:`<div class="slides">${p.imgs.map((n,i)=>`<img src="img/${n}.jpg?v=2" alt="${p.label} — lâmina ${i+1}" loading="lazy">`).join('')}</div>`}
+   <div class="slidewrap">${p.reel?`<video class="reelv" src="${(p.video||'img/reel.mp4')+'?v=3'}" poster="img/${p.imgs[0]}.jpg?v=3" controls playsinline preload="metadata"></video>`:`<div class="slides">${p.imgs.map((n,i)=>`<img src="img/${n}.jpg?v=3" alt="${p.label} — lâmina ${i+1}" loading="lazy">`).join('')}</div>`}
    ${p.imgs.length>1?`<span class="count">1/${p.imgs.length}</span><button class="arrow l" aria-label="Anterior" hidden>‹</button><button class="arrow r" aria-label="Próxima">›</button>`:''}</div>
    <div class="acts">${I.heart}${I.com}${I.send}${p.imgs.length>1?`<div class="dots">${p.imgs.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('')}</div>`:'<div style="flex:1"></div>'}${I.save}</div>
    <div class="cap"><span class="u">arafarialima</span>${p.cap}\n<span class="tag">${p.tags}</span></div>
